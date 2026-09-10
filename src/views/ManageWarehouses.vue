@@ -131,8 +131,9 @@ export default {
     async fetchWarehouses() {
       try {
         const response = await getWarehouses()
-        this.warehouses = response.data?.warehouses || response || []
-        this.totalRecords = response.data?.pagination.total_records || 0
+        this.warehouses = response.data?.warehouse || response.data?.warehouses || []
+        console.log('Fetched warehouses:', response.data)
+        this.totalRecords = response.data?.pagination?.total_records || 0
       } catch (error) {
         console.error('Error fetching warehouses:', error)
         this.warehouses = []

@@ -37,7 +37,7 @@
             <FormInput
               v-model="form.email"
               label="Email Address"
-              icon="@/assets/images/icons/sms-grey.svg"
+              :icon="smsGrey"
               required="true"
               type="email"
               :disabled="loading"
@@ -45,7 +45,7 @@
             <FormInput
               v-model="form.password"
               label="Password"
-              icon="@/assets/images/icons/lock-grey.svg"
+              :icon="lockGrey"
               required="true"
               :type="showPassword ? 'text' : 'password'"
               :disabled="loading"
@@ -66,6 +66,8 @@
 <script>
 import FormInput from '@/components/FormInput.vue'
 import { useAuthStore } from '@/stores/auth'
+import smsGrey from '@/assets/images/icons/sms-grey.svg'
+import lockGrey from '@/assets/images/icons/lock-grey.svg'
 
 export default {
   name: 'Login',
@@ -81,6 +83,8 @@ export default {
       loading: false,
       showPassword: false,
       errorMessage: '',
+      smsGrey,
+      lockGrey,
     }
   },
   methods: {

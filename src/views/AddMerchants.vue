@@ -39,20 +39,20 @@
           <FormInput
             v-model="form.name"
             label="Merchant Name"
-            icon="@/assets/images/icons/shop-grey.svg"
+            :icon="shopIconGrey"
             required="true"
           />
           <FormInput
             v-model="form.phone"
             label="Phone Number"
-            icon="@/assets/images/icons/call-grey.svg"
+            :icon="callGrey"
             required="true"
             type="tel"
           />
           <FormSelect
             v-model="form.keeper_id"
             label="Keeper"
-            icon="@/assets/images/icons/user-thin-grey.svg"
+            :icon="userThinGrey"
             required
           >
             <option v-for="keeper in keepers" :key="keeper.id" :value="keeper.id">
@@ -62,7 +62,7 @@
           <FormTextarea
             v-model="form.address"
             label="Merchants Address"
-            icon="@/assets/images/icons/location-grey.svg"
+            :icon="locationGrey"
             required
           />
           <div class="flex items-center justify-end gap-4">
@@ -78,7 +78,7 @@
           <ul class="flex flex-col gap-4">
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -88,7 +88,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -98,7 +98,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -108,7 +108,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -118,7 +118,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -140,6 +140,13 @@ import FormSelect from '@/components/FormSelect.vue'
 import FormTextarea from '@/components/FormTextarea.vue'
 import { getKeepers } from '@/js/api/users'
 import { createMerchant, uploadMerchantImage } from '@/js/api/merchants'
+import shopIconGrey from '@/assets/images/icons/shop-grey.svg'
+import callGrey from '@/assets/images/icons/call-grey.svg'
+import userThinGrey from '@/assets/images/icons/user-thin-grey.svg'
+import locationGrey from '@/assets/images/icons/location-grey.svg'
+import galleryDefault from '@/assets/images/icons/gallery-default.svg'
+import checklistGreenCircle from '@/assets/images/icons/Checklist-green-circle.svg'
+
 
 export default {
   name: 'AddMerchants',
@@ -162,8 +169,14 @@ export default {
       isSubmitting: false,
       imagePreview: '',
       selectedFile: null,
-      defaultImage: '/src/assets/images/icons/gallery-default.svg',
+      defaultImage: galleryDefault,
       isLoadingKeepers: false,
+      shopIconGrey,
+      callGrey,
+      userThinGrey,
+      locationGrey,
+      galleryDefault,
+      checklistGreenCircle,
     }
   },
   async created() {
@@ -227,6 +240,7 @@ export default {
           try {
             const uploadResponse = await uploadMerchantImage(this.form.photo)
             photoUrl = uploadResponse.data.url || uploadResponse.data.photo
+            console.log('Uploaded photo URL:', photoUrl)
           } catch (uploadError) {
             console.error('Error uploading image:', uploadError)
             // Continue without photo if upload fails

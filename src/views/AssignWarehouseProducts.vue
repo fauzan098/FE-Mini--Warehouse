@@ -36,7 +36,7 @@
             <FormSelect
               v-model="formData.productId"
               label="Product ID"
-              icon="@/assets/images/icons/barcode-black.svg"
+              :icon="barcodeBlack"
               required
             >
               <option v-for="product in availableProducts" :key="product.id" :value="product.id">
@@ -46,7 +46,7 @@
             <FormInput
               v-model="formData.stock"
               label="Stock"
-              icon="@/assets/images/icons/box-grey.svg"
+              :icon="boxGrey"
               type="number"
               min="0"
               step="1"
@@ -70,7 +70,7 @@
           <ul class="flex flex-col gap-4">
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -80,7 +80,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -90,7 +90,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -100,7 +100,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -110,7 +110,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -131,6 +131,9 @@ import FormSelect from '@/components/FormSelect.vue'
 import FormInput from '@/components/FormInput.vue'
 import { getProducts } from '@/js/api/products'
 import { assignProductToWarehouse, getWarehouseById } from '@/js/api/warehouse'
+import barcodeBlack from '@/assets/images/icons/barcode-black.svg'
+import boxGrey from '@/assets/images/icons/box-grey.svg'
+import checklistGreenCircle from '@/assets/images/icons/Checklist-green-circle.svg'
 
 export default {
   name: 'AssignWarehouseProducts',
@@ -153,6 +156,9 @@ export default {
         stock: 0,
       },
       isSubmitting: false,
+      barcodeBlack,
+      boxGrey,
+      checklistGreenCircle,
     }
   },
   async created() {

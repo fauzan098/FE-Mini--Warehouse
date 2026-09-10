@@ -12,9 +12,10 @@ export async function authMiddleware(to, from, next) {
     }
 
     if (to.meta.roles && to.meta.roles.length > 0) {
-      const userRole = authStore.userRole?.toLowerCase()
       const hasAccess = to.meta.roles.some(
-        (role) => role.toLowerCase() === userRole || authStore.hasAccess(role),
+        (role) =>
+          authStore.userRoles.includes(String(role).toLowerCase()) ||
+          authStore.hasAccess(role),
       )
 
       if (!hasAccess) {

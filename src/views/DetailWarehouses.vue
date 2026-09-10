@@ -290,6 +290,7 @@ export default {
           photo: response.data.photo,
         }
         this.warehouseProducts = response.data.warehouse_products
+        console.log('Warehouse products loaded:', response)
       } catch (error) {
         console.error('Error loading warehouse products:', error)
       }

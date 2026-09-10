@@ -10,7 +10,7 @@
           <FormSelect
             v-model="formData.userId"
             label="Select User Id"
-            icon="@/assets/images/icons/profile-circle-grey.svg"
+            :icon="profileCircleGrey"
             required
           >
             <option value="mirana1">Mirana Gaul</option>
@@ -19,7 +19,7 @@
           <FormSelect
             v-model="formData.roleId"
             label="Select Role Id"
-            icon="@/assets/images/icons/profile-tick-grey.svg"
+            :icon="profileTickGrey"
             required
           >
             <option value="keeper">Keeper</option>
@@ -40,7 +40,7 @@
           <ul class="flex flex-col gap-4">
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -50,7 +50,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -60,7 +60,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -70,7 +70,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -80,7 +80,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -101,6 +101,9 @@ import FormSelect from '@/components/FormSelect.vue'
 import { useRoute, useRouter } from 'vue-router'
 import { onMounted, reactive, ref } from 'vue'
 import { getUserRoleById } from '@/js/api/users'
+import profileCircleGrey from '@/assets/images/icons/profile-circle-grey.svg'
+import profileTickGrey from '@/assets/images/icons/profile-tick-grey.svg'
+import checklistGreenCircle from '@/assets/images/icons/Checklist-green-circle.svg'
 
 export default {
   name: 'EditUserRoles',
@@ -194,6 +197,9 @@ export default {
       currentAssignment,
       loadCurrentAssignment,
       handleSubmit,
+      profileCircleGrey,
+      profileTickGrey,
+      checklistGreenCircle,
     }
   },
 }

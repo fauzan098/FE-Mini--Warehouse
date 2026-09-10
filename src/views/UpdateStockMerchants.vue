@@ -94,7 +94,7 @@
             <FormInput
               v-model="formData.newStock"
               label="New Stock"
-              icon="@/assets/images/icons/box-grey.svg"
+              :icon="boxGrey"
               required
               type="number"
               min="0"
@@ -118,7 +118,7 @@
           <ul class="flex flex-col gap-4">
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -128,7 +128,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -139,7 +139,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -149,7 +149,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -159,7 +159,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -178,6 +178,8 @@
 import Layout from '@/components/Layout.vue'
 import FormInput from '@/components/FormInput.vue'
 import { updateMerchantProductStock } from '@/js/api/merchants'
+import boxGrey from '@/assets/images/icons/box-grey.svg'
+import checklistGreenCircle from '@/assets/images/icons/Checklist-green-circle.svg'
 
 export default {
   name: 'UpdateStockMerchants',
@@ -206,6 +208,8 @@ export default {
         newStock: 0,
       },
       isLoading: false,
+      boxGrey,
+      checklistGreenCircle,
     }
   },
   created() {

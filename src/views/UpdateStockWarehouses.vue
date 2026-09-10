@@ -60,7 +60,7 @@
             <FormInput
               v-model="formData.newStock"
               label="New Stock"
-              icon="@/assets/images/icons/box-grey.svg"
+              :icon="boxGrey"
               required
               type="number"
               min="0"
@@ -106,7 +106,7 @@
           <ul class="flex flex-col gap-4">
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -116,7 +116,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -126,7 +126,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -136,7 +136,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -146,7 +146,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -170,6 +170,8 @@ import {
   getWarehouseProductByWarehouseIDAndProductID,
   updateWarehouseProductStock,
 } from '@/js/api/warehouse'
+import boxGrey from '@/assets/images/icons/box-grey.svg'
+import checklistGreenCircle from '@/assets/images/icons/Checklist-green-circle.svg'
 
 export default {
   name: 'UpdateStockWarehouses',
@@ -197,6 +199,8 @@ export default {
       },
       warehouseProductId: null,
       isSubmitting: false,
+      boxGrey,
+      checklistGreenCircle,
     }
   },
   async created() {

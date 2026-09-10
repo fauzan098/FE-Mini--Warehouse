@@ -10,7 +10,7 @@
                 class="size-6 flex shrink-0"
                 alt="icon"
               />
-              <span class="font-semibold text-2xl">5 Total Merchants</span>
+              <span class="font-semibold text-2xl">{{ pagination.total_records }} Total Merchants</span>
             </p>
             <p class="font-semibold text-lg text-monday-gray">
               View and update your Merchants list here.
@@ -57,7 +57,7 @@
           </div>
           <!-- Merchants List -->
           <div v-else class="flex flex-col gap-5">
-            <template v-for="merchant in merchants" :key="merchant.id">
+            <template v-for="(merchant, index) in merchants" :key="merchant.id">
               <div class="card flex items-center justify-between gap-3">
                 <div class="flex items-center gap-3 w-[326px] shrink-0">
                   <div
@@ -197,8 +197,13 @@ export default {
         const response = await getMerchants(
           '?page=' + this.currentPage + '&limit=' + this.itemsPerPage,
         )
-        this.merchants = response.data?.data || response || []
-
+        const data = response.data
+        this.merchants = Array.isArray(data?.data)
+          ? data.data
+          : Array.isArray(data)
+            ? data
+            : []
+        console.log('Fetched merchants:', response.data)
         this.pagination = {
           current_page: response.data?.pagination?.current_page || 1,
           total_pages: response.data?.pagination?.total_pages || 1,
@@ -210,6 +215,7 @@ export default {
       } catch (error) {
         console.error('Error fetching merchants:', error)
       } finally {
+        // console.log(response.data)
         this.isLoading = false
       }
     },

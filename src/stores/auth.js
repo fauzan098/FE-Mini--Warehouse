@@ -16,6 +16,13 @@ export const useAuthStore = defineStore('auth', {
     userRole: (state) => state.user?.roles || null,
     currentToken: (state) => state.token,
     currentMerchant: (state) => state.merchantData,
+    userRoles: (state) => {
+      if (!state.user?.roles) return []
+      return String(state.user.roles)
+        .split(',')
+        .map((role) => role.trim().toLowerCase())
+        .filter(Boolean)
+    },
   },
   actions: {
     async login(credentials) {
@@ -50,7 +57,7 @@ export const useAuthStore = defineStore('auth', {
         localStorage.setItem('auth_token', token)
         localStorage.setItem('user', JSON.stringify(this.user))
 
-        if (user.roles?.toLowerCase() === 'keeper') {
+        if (this.userRoles.includes('keeper')) {
           await this.fetchAndStoreMerchants()
         }
 
@@ -69,8 +76,16 @@ export const useAuthStore = defineStore('auth', {
         }
 
         const response = await getMerchants(`?keeper_id=${this.user.id}`)
-        if (response.data) {
-          const merchantData = Array.isArray(response.data) ? response.data : [response.data]
+        const rawData = response.data
+        const merchantData = Array.isArray(rawData)
+          ? rawData
+          : rawData?.data && Array.isArray(rawData.data)
+            ? rawData.data
+            : rawData
+              ? [rawData]
+              : null
+
+        if (merchantData && merchantData.length > 0) {
           const merchantDataForStorage = merchantData.map((merchant) => ({
             id: merchant.id,
             name: merchant.name,
@@ -83,6 +98,9 @@ export const useAuthStore = defineStore('auth', {
 
           this.merchantData = merchantDataForStorage
           localStorage.setItem('merchant_data', JSON.stringify(merchantDataForStorage))
+        } else {
+          this.merchantData = null
+          localStorage.removeItem('merchant_data')
         }
       } catch (error) {
         console.error('Error fetching and storing merchants:', error)
@@ -91,16 +109,17 @@ export const useAuthStore = defineStore('auth', {
     },
 
     getRedirectUrl() {
-      const role = this.user?.roles?.toLowerCase()
+      const roles = this.userRoles
 
-      switch (role) {
-        case 'manager':
-          return '/overview'
-        case 'keeper':
-          return '/overview-merchant'
-        default:
-          return '/'
+      if (roles.includes('manager')) {
+        return '/overview'
       }
+
+      if (roles.includes('keeper')) {
+        return '/overview-merchant'
+      }
+
+      return '/'
     },
 
     resetState() {
@@ -115,15 +134,16 @@ export const useAuthStore = defineStore('auth', {
     },
 
     hasAccess(requiredRole) {
-      const userRole = this.user?.roles?.toLowerCase()
-
       const roleHierarchy = {
         manager: 2,
         keeper: 1,
       }
 
-      const userLevel = roleHierarchy[userRole] || 0
-      const requiredLevel = roleHierarchy[requiredRole] || 0
+      const userLevel = this.userRoles.reduce(
+        (max, role) => Math.max(max, roleHierarchy[role] || 0),
+        0,
+      )
+      const requiredLevel = roleHierarchy[String(requiredRole).toLowerCase()] || 0
 
       return userLevel >= requiredLevel
     },
@@ -197,7 +217,7 @@ export const useAuthStore = defineStore('auth', {
     },
 
     async refreshMerchantData() {
-      if (this.user?.roles?.toLowerCase() === 'keeper') {
+      if (this.userRoles.includes('keeper')) {
         await this.fetchAndStoreMerchants()
       }
     },

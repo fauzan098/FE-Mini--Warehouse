@@ -68,7 +68,7 @@ class ApiService {
 
       return response.json()
     } catch (error) {
-      clearImmediate(timeoutId)
+      clearTimeout(timeoutId)
       if (error.name === 'AbortError') {
         throw new Error('Request timed out')
       }

@@ -312,12 +312,7 @@ import LayoutMerchant from '@/components/LayoutMerchant.vue'
 import { getFirstMerchantFromStorage } from '@/js/api'
 import { getKeeperDashboardData } from '@/js/api/dashboard'
 import { getTransactions } from '@/js/api/transaction'
-import { useAuthStore } from '@/stores/auth'
-import { useRouter } from 'vue-router'
 import { onMounted, onUnmounted, ref } from 'vue'
-
-const router = useRouter()
-const authStore = useAuthStore()
 
 const transactions = ref([])
 const dashboardData = ref({
@@ -344,8 +339,7 @@ const loadDashboardData = async () => {
     const merchant = getFirstMerchantFromStorage()
     if (!merchant) {
       dashboardError.value = 'No merchant found'
-      authStore.clearLocalStorageData()
-      router.replace('/')
+      currentMerchant.value = null
       return
     }
 

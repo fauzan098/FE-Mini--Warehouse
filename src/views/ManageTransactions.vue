@@ -306,7 +306,7 @@ const closeModal = () => {
 }
 
 onMounted(async () => {
-  if (!merchantData.value && authStore.userRole?.toLowerCase() === 'keeper') {
+  if (!merchantData.value && authStore.userRoles.includes('keeper')) {
     await authStore.refreshMerchantData()
   }
 

@@ -60,20 +60,20 @@
           <FormInput
             v-model="form.name"
             label="Warehouse Name"
-            icon="@/assets/images/icons/buildings-2-grey.svg"
+            :icon="buildings2Grey"
             required="true"
           />
           <FormInput
             v-model="form.phone"
             label="Phone Number"
-            icon="@/assets/images/icons/call-grey.svg"
+            :icon="callGrey"
             required="true"
             type="tel"
           />
           <FormTextarea
             v-model="form.address"
             label="Warehouse Address"
-            icon="@/assets/images/icons/location-grey.svg"
+            :icon="locationGrey"
             required="true"
           />
           <div class="flex items-center justify-end gap-4">
@@ -94,7 +94,7 @@
           <ul class="flex flex-col gap-4">
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -104,7 +104,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -114,7 +114,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -124,7 +124,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -134,7 +134,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -152,6 +152,10 @@ import Layout from '@/components/Layout.vue'
 import FormInput from '@/components/FormInput.vue'
 import FormTextarea from '@/components/FormTextarea.vue'
 import { getWarehouseById, updateWarehouse, uploadWarehouseImage } from '@/js/api/warehouse'
+import buildings2Grey from '@/assets/images/icons/buildings-2-grey.svg'
+import callGrey from '@/assets/images/icons/call-grey.svg'
+import locationGrey from '@/assets/images/icons/location-grey.svg'
+import checklistGreenCircle from '@/assets/images/icons/Checklist-green-circle.svg'
 
 export default {
   name: 'EditWarehouses',
@@ -182,6 +186,10 @@ export default {
       error: '',
       selectedFile: null,
       isSubmitting: false,
+      buildings2Grey,
+      callGrey,
+      locationGrey,
+      checklistGreenCircle,
     }
   },
   async created() {

@@ -36,34 +36,34 @@
           <FormInput
             v-model="formData.fullName"
             label="Full Name"
-            icon="@/assets/images/icons/profile-grey.svg"
+            :icon="profileGrey"
             required="true"
           />
           <FormInput
             v-model="formData.phoneNumber"
             label="Phone Number"
-            icon="@/assets/images/icons/call-grey.svg"
+            :icon="callGrey"
             required="true"
             type="tel"
           />
           <FormInput
             v-model="formData.email"
             label="Email Address"
-            icon="@/assets/images/icons/sms-grey.svg"
+            :icon="smsGrey"
             required="true"
             type="email"
           />
           <FormInput
             v-model="formData.password"
             label="Password"
-            icon="@/assets/images/icons/key-grey.svg"
+            :icon="keyGrey"
             required="true"
             type="password"
           />
           <FormInput
             v-model="formData.passwordConfirmation"
             label="Password Confirmation"
-            icon="@/assets/images/icons/key-grey.svg"
+            :icon="keyGrey"
             required="true"
             type="password"
           />
@@ -79,7 +79,7 @@
           <ul class="flex flex-col gap-4">
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -89,7 +89,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -99,7 +99,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -110,7 +110,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -120,7 +120,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -142,6 +142,12 @@ import FormInput from '@/components/FormInput.vue'
 import { useRouter } from 'vue-router'
 import { reactive, ref } from 'vue'
 import { createUser, uploadUserImage } from '@/js/api/users'
+import profileGrey from '@/assets/images/icons/profile-grey.svg'
+import callGrey from '@/assets/images/icons/call-grey.svg'
+import smsGrey from '@/assets/images/icons/sms-grey.svg'
+import keyGrey from '@/assets/images/icons/key-grey.svg'
+import galleryDefault from '@/assets/images/icons/gallery-default.svg'
+import checklistGreenCircle from '@/assets/images/icons/Checklist-green-circle.svg'
 
 export default {
   name: 'AddUsers',
@@ -249,6 +255,11 @@ export default {
       showPasswordConfirmation,
       handlePhotoUpload,
       handleSubmit,
+      profileGrey,
+      callGrey,
+      smsGrey,
+      keyGrey,
+      checklistGreenCircle,
     }
   },
 }

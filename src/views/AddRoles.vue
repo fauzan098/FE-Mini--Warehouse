@@ -6,11 +6,11 @@
           @submit.prevent="handleSubmit"
           class="flex flex-col w-full h-fit rounded-3xl p-[18px] gap-5 bg-white"
         >
-          <h2 class="font-semibold text-xl capitalize">Edit the form</h2>
+          <h2 class="font-semibold text-xl capitalize">Add the form</h2>
           <FormInput
             v-model="form.name"
             label="Role Name"
-            icon="@/assets/images/icons/user-octagon-grey.svg"
+            :icon="userOctagonGrey"
             required="true"
           />
           <div class="flex items-center justify-end gap-4">
@@ -28,7 +28,7 @@
           <ul class="flex flex-col gap-4">
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -38,7 +38,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -49,7 +49,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -59,7 +59,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -69,7 +69,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -90,6 +90,8 @@ import FormInput from '@/components/FormInput.vue'
 import { useRolesStore } from '@/stores/roles'
 import { useRouter } from 'vue-router'
 import { computed, reactive } from 'vue'
+import userOctagonGrey from '@/assets/images/icons/user-octagon-grey.svg'
+import checklistGreenCircle from '@/assets/images/icons/Checklist-green-circle.svg'
 
 export default {
   name: 'AddRoles',
@@ -132,6 +134,8 @@ export default {
       loading,
       error,
       handleSubmit,
+      userOctagonGrey,
+      checklistGreenCircle,
     }
   },
 }

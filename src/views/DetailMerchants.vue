@@ -220,7 +220,7 @@
             class="flex size-[100px] rounded-2xl bg-monday-background items-center justify-center overflow-hidden"
           >
             <img
-              :src="getProductImage(selectedProduct.product_photo)"
+              :src="selectedProduct.product_photo"
               class="size-full object-contain"
               alt="product"
             />
@@ -241,7 +241,7 @@
               class="flex size-8 rounded-full bg-monday-background items-center justify-center overflow-hidden"
             >
               <img
-                :src="getWarehouseImage(selectedProduct.warehouse_photo)"
+                :src="selectedProduct.warehouse_photo"
                 class="size-full object-cover"
                 :alt="selectedProduct.warehouse_name"
               />
@@ -323,6 +323,12 @@ export default {
         return
       } finally {
         this.isLoading = false
+      }
+    },
+
+    getCategoryIcon(iconName) {
+      if (iconName && (iconName.startsWith('http://') || iconName.startsWith('https://'))) {
+        return iconName
       }
     },
 

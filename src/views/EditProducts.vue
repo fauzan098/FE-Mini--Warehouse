@@ -155,7 +155,7 @@
           <FormTextarea
             v-model="form.description"
             label="Product About"
-            icon="@/assets/images/icons/note-2-grey.svg"
+            :icon="noteIcon"
             required
             maxlength="1000"
             :show-counter="true"
@@ -170,7 +170,7 @@
           <ul class="flex flex-col gap-4">
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistIcon"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -178,7 +178,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistIcon"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -188,7 +188,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistIcon"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -198,7 +198,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistIcon"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -208,7 +208,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistIcon"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />

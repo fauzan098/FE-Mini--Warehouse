@@ -73,13 +73,13 @@
           <FormInput
             v-model="form.name"
             label="Category Name"
-            icon="@/assets/images/icons/note-2-grey.svg"
+            :icon="note2Grey"
             required="true"
           />
           <FormInput
             v-model="form.description"
             label="Category Tagline"
-            icon="@/assets/images/icons/document-grey.svg"
+            :icon="documentGrey"
             required="true"
           />
           <div class="flex items-center justify-end gap-4">
@@ -100,7 +100,7 @@
           <ul class="flex flex-col gap-4">
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -108,7 +108,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -118,7 +118,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -128,7 +128,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -138,7 +138,7 @@
             </li>
             <li class="flex gap-[6px]">
               <img
-                src="@/assets/images/icons/Checklist-green-circle.svg"
+                :src="checklistGreenCircle"
                 class="flex size-6 shrink-0"
                 alt="icon"
               />
@@ -154,6 +154,9 @@
 import Layout from '@/components/Layout.vue'
 import FormInput from '@/components/FormInput.vue'
 import { getCategoryById, updateCategory, uploadCategoryImage } from '@/js/api/products'
+import note2Grey from '@/assets/images/icons/note-2-grey.svg'
+import documentGrey from '@/assets/images/icons/document-grey.svg'
+import checklistGreenCircle from '@/assets/images/icons/Checklist-green-circle.svg'
 
 export default {
   components: {
@@ -182,6 +185,9 @@ export default {
       isUploading: false,
       error: '',
       loading: false,
+      note2Grey,
+      documentGrey,
+      checklistGreenCircle,
     }
   },
   async created() {
