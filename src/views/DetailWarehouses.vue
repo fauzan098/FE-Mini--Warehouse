@@ -66,7 +66,7 @@
             class="flex flex-col flex-1 items-center justify-center rounded-[20px] border-dashed border-2 border-monday-gray gap-6"
           >
             <img
-              src="/src/assets/images/icons/document-text-grey.svg"
+              :src="documentTextGrey"
               class="size-[52px]"
               alt="icon"
             />
@@ -155,7 +155,7 @@
             @click="closeModal"
             class="flex size-14 rounded-full items-center justify-center bg-monday-gray-background"
           >
-            <img src="/src/assets/images/icons/close-circle-black.svg" class="size-6" alt="icon" />
+            <img :src="closeCircleBlack" class="size-6" alt="icon" />
           </button>
         </div>
         <div
@@ -251,6 +251,8 @@
 <script>
 import Layout from '@/components/Layout.vue'
 import { getWarehouseProductByWarehouseID } from '@/js/api/warehouse'
+import documentTextGrey from '@/assets/images/icons/document-text-grey.svg'
+import closeCircleBlack from '@/assets/images/icons/close-circle-black.svg'
 
 export default {
   name: 'DetailWarehouses',
@@ -259,6 +261,8 @@ export default {
   },
   data() {
     return {
+      documentTextGrey,
+      closeCircleBlack,
       warehouse: {
         id: null,
         name: '',

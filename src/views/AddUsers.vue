@@ -13,8 +13,8 @@
             >
               <img
                 id="Thumbnail"
-                :src="photoPreview || '/src/assets/images/icons/gallery-default.svg'"
-                data-default="@/assets/images/icons/gallery-default.svg"
+                :src="photoPreview || galleryDefault"
+                :data-default="galleryDefault"
                 class="size-full object-contain"
                 alt="icon"
               />

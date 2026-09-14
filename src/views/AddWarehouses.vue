@@ -17,8 +17,8 @@
             >
               <img
                 id="Thumbnail"
-                :src="imagePreview || '/src/assets/images/icons/gallery-grey.svg'"
-                data-default="@/assets/images/icons/gallery-default.svg"
+                :src="imagePreview || galleryGrey"
+                :data-default="galleryDefault"
                 class="size-full object-cover"
                 alt="icon"
               />
@@ -174,6 +174,7 @@ import buildings2Grey from '@/assets/images/icons/buildings-2-grey.svg'
 import callGrey from '@/assets/images/icons/call-grey.svg'
 import locationGrey from '@/assets/images/icons/location-grey.svg'
 import galleryDefault from '@/assets/images/icons/gallery-default.svg'
+import galleryGrey from '@/assets/images/icons/gallery-grey.svg'
 import checklistGreenCircle from '@/assets/images/icons/Checklist-green-circle.svg'
 
 export default {

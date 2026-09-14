@@ -38,7 +38,7 @@
                   <div
                     class="flex size-[86px] rounded-2xl bg-monday-background items-center justify-center overflow-hidden"
                   >
-                    <img :src="product.thumnail" class="size-full object-contain" alt="icon" />
+                    <img :src="product.thumbnail" class="size-full object-contain" alt="icon" />
                   </div>
                   <div class="flex flex-col gap-2 flex-1">
                     <p class="font-semibold text-xl w-[282px] truncate">{{ product.name }}</p>

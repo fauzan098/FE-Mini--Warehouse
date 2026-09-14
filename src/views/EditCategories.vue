@@ -15,7 +15,7 @@
         v-else-if="error"
         class="flex flex-col flex-1 items-center justify-center rounded-[20px] border-dashed border-2 border-red-300 gap-6"
       >
-        <img src="/src/assets/images/icons/close-circle-black.svg" class="size-[52px]" alt="icon" />
+        <img :src="closeCircleBlack" class="size-[52px]" alt="icon" />
         <p class="font-semibold text-red-600">{{ error }}</p>
         <button @click="loadCategory" class="btn btn-primary font-semibold">Coba Lagi</button>
       </div>
@@ -157,6 +157,7 @@ import { getCategoryById, updateCategory, uploadCategoryImage } from '@/js/api/p
 import note2Grey from '@/assets/images/icons/note-2-grey.svg'
 import documentGrey from '@/assets/images/icons/document-grey.svg'
 import checklistGreenCircle from '@/assets/images/icons/Checklist-green-circle.svg'
+import closeCircleBlack from '@/assets/images/icons/close-circle-black.svg'
 
 export default {
   components: {
@@ -166,6 +167,7 @@ export default {
   name: 'EditCategories',
   data() {
     return {
+      closeCircleBlack,
       category: {
         name: '',
         description: '',

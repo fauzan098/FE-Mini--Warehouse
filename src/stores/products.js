@@ -37,6 +37,7 @@ export const useProductStore = defineStore('products', {
       try {
         const response = await getProducts()
         this.products = response.data?.products || response || []
+        console.log('Fetched products:', this.products)
       } catch (error) {
         console.error('Error fetching products:', error)
         this.error = error.message || 'Gagal mengambil data produk'

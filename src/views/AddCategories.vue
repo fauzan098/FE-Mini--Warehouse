@@ -13,8 +13,8 @@
             >
               <img
                 id="Thumbnail"
-                :src="imagePreview || '/src/assets/images/icons/gallery-grey.svg'"
-                data-default="@/assets/images/icons/gallery-grey.svg"
+                :src="imagePreview || galleryGrey"
+                :data-default="galleryGrey"
                 class="size-14 object-contain"
                 alt="icon"
               />
@@ -149,6 +149,7 @@ import { createCategory, uploadCategoryImage } from '@/js/api/products'
 import note2Grey from '@/assets/images/icons/note-2-grey.svg'
 import documentGrey from '@/assets/images/icons/document-grey.svg'
 import checklistGreenCircle from '@/assets/images/icons/Checklist-green-circle.svg'
+import galleryGrey from '@/assets/images/icons/gallery-grey.svg'
 
 export default {
   name: 'AddCategories',

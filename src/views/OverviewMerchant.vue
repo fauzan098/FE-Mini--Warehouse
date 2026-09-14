@@ -154,11 +154,11 @@
                   Product Assigned ({{ transaction.transaction_products?.length || 0 }})
                 </p>
                 <img
-                  :src="
-                    expandedSections.includes(index + 1)
-                      ? '/src/assets/images/icons/arrow-circle-down.svg'
-                      : '/src/assets/images/icons/arrow-circle-up.svg'
-                  "
+                    :src="
+                      expandedSections.includes(index + 1)
+                        ? arrowCircleDown
+                        : arrowCircleUp
+                    "
                   class="size-6 flex shrink-0 transition-300"
                   alt="icon"
                 />
@@ -192,7 +192,7 @@
                       :src="product.category?.photo"
                       class="size-6 flex shrink-0"
                       alt="icon"
-                      onerror="this.src='/src/assets/images/icons/box-grey.svg'"
+                      onerror="this.src=boxGrey"
                     />
                     <p class="font-semibold text-lg text-nowrap">
                       {{ product.category?.name || 'Uncategorized' }}
@@ -267,7 +267,7 @@
                 :src="selectedProduct.category?.photo"
                 class="size-6 flex shrink-0"
                 alt="icon"
-                onerror="this.src='/src/assets/images/icons/box-grey.svg'"
+                onerror="this.src=boxGrey"
               />
               {{ selectedProduct.category?.name || 'Uncategorized' }}
             </p>
@@ -284,7 +284,7 @@
               :src="selectedProduct.product_photo"
               class="size-full object-contain"
               alt="product"
-              onerror="this.src='/src/assets/images/icons/gallery-default.svg'"
+              onerror="this.src=galleryDefault"
             />
           </div>
         </div>
@@ -313,6 +313,10 @@ import { getFirstMerchantFromStorage } from '@/js/api'
 import { getKeeperDashboardData } from '@/js/api/dashboard'
 import { getTransactions } from '@/js/api/transaction'
 import { onMounted, onUnmounted, ref } from 'vue'
+import boxGrey from '@/assets/images/icons/box-grey.svg'
+import galleryDefault from '@/assets/images/icons/gallery-default.svg'
+import arrowCircleDown from '@/assets/images/icons/arrow-circle-down.svg'
+import arrowCircleUp from '@/assets/images/icons/arrow-circle-up.svg'
 
 const transactions = ref([])
 const dashboardData = ref({

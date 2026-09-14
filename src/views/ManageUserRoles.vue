@@ -59,7 +59,7 @@
                     class="flex size-[76px] rounded-full bg-monday-background items-center justify-center overflow-hidden"
                   >
                     <img
-                      :src="userRole.user.photo || '@/assets/images/photos/photos-2.png'"
+                      :src="userRole.user.photo || photosDefault"
                       class="size-full object-cover"
                       alt="icon"
                     />
@@ -156,6 +156,7 @@
 import Layout from '@/components/Layout.vue'
 import { getUserRoles } from '@/js/api/users'
 import { onMounted, ref } from 'vue'
+import photosDefault from '@/assets/images/photos/photos-2.png'
 
 export default {
   name: 'ManageUserRoles',

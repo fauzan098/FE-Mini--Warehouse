@@ -239,7 +239,7 @@ import barcodeIcon from '@/assets/images/icons/barcode-black.svg'
 import moneysIcon from '@/assets/images/icons/moneys-grey.svg'
 import noteIcon from '@/assets/images/icons/note-2-grey.svg'
 import checklistIcon from '@/assets/images/icons/Checklist-green-circle.svg'
-// import defaultGalleryIcon from '@/assets/images/icons/gallery-default.svg'
+import defaultGalleryIcon from '@/assets/images/icons/gallery-default.svg'
 
 
 export default {
@@ -262,7 +262,7 @@ export default {
       popularity: false,
       category: 0,
       description: '',
-      image: '/src/assets/images/icons/gallery-default.svg',
+      image: defaultGalleryIcon,
     })
 
     const loading = ref(false)
@@ -274,7 +274,7 @@ export default {
     const imageUploading = ref(false)
     const originalImage = ref(null)
     const isLoadingProduct = ref(false)
-    const defaultImage = '/src/assets/images/icons/gallery-default.svg'
+    const defaultImage = defaultGalleryIcon
 
     const categories = computed(() => productStore.categories)
 

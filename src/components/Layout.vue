@@ -190,8 +190,8 @@
                   <img
                     :src="
                       userMenuExpanded
-                        ? '/src/assets/images/icons/arrow-circle-down.svg'
-                        : '/src/assets/images/icons/arrow-circle-up.svg'
+                        ? arrowCircleDown
+                        : arrowCircleUp
                     "
                     class="size-6 flex shrink-0 transition-300"
                     alt="icon"
@@ -392,7 +392,7 @@
             </div>
             <img
               v-else
-              :src="currentUser?.avatar || '/src/assets/images/photos/photos-1.png'"
+              :src="currentUser?.avatar || photos1Default"
               class="size-full object-cover"
               alt="photo"
             />
@@ -460,6 +460,9 @@
 <script>
 import { removeAuthToken } from '../js/api/users'
 import { useAuthStore } from '../stores/auth'
+import arrowCircleDown from '@/assets/images/icons/arrow-circle-down.svg'
+import arrowCircleUp from '@/assets/images/icons/arrow-circle-up.svg'
+import photos1Default from '@/assets/images/photos/photos-1.png'
 
 export default {
   name: 'Layout',
@@ -483,6 +486,9 @@ export default {
       userMenuExpanded: false,
       userLoading: false,
       showLogoutConfirm: false,
+      arrowCircleDown,
+      arrowCircleUp,
+      photos1Default,
     }
   },
 

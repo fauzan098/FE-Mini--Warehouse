@@ -13,8 +13,8 @@
             >
               <img
                 id="Thumbnail"
-                :src="photoPreview || userData.photo || '/src/assets/images/photos/photos-2.png'"
-                data-default="@/assets/images/icons/gallery-default.svg"
+                :src="photoPreview || userData.photo || photosDefault"
+                :data-default="galleryDefault"
                 class="size-full object-contain"
                 alt="icon"
               />
@@ -146,6 +146,8 @@ import callGrey from '@/assets/images/icons/call-grey.svg'
 import smsGrey from '@/assets/images/icons/sms-grey.svg'
 import keyGrey from '@/assets/images/icons/key-grey.svg'
 import checklistGreenCircle from '@/assets/images/icons/Checklist-green-circle.svg'
+import galleryDefault from '@/assets/images/icons/gallery-default.svg'
+import photosDefault from '@/assets/images/photos/photos-2.png'
 
 export default {
   name: 'EditUsers',

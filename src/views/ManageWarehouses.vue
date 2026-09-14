@@ -36,7 +36,7 @@
             class="flex flex-col flex-1 items-center justify-center rounded-[20px] border-dashed border-2 border-monday-gray gap-6"
           >
             <img
-              src="/src/assets/images/icons/document-text-grey.svg"
+              :src="documentTextGrey"
               class="size-[52px]"
               alt="icon"
             />
@@ -112,6 +112,7 @@
 <script>
 import Layout from '@/components/Layout.vue'
 import { getWarehouses } from '@/js/api/warehouse'
+import documentTextGrey from '@/assets/images/icons/document-text-grey.svg'
 
 export default {
   name: 'ManageWarehouses',
@@ -120,6 +121,7 @@ export default {
   },
   data() {
     return {
+      documentTextGrey,
       warehouses: [],
       totalRecords: 0,
     }

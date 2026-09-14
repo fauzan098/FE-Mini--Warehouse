@@ -17,7 +17,7 @@
             >
               <img
                 :src="imagePreview || defaultImage"
-                data-default="@/assets/images/icons/gallery-default.svg"
+                :data-default="galleryDefault"
                 class="size-full object-cover"
                 alt="icon"
               />

@@ -238,7 +238,7 @@
             </div>
             <img
               v-else
-              :src="currentUser?.avatar || '/src/assets/images/photos/photos-1.png'"
+              :src="currentUser?.avatar || photos1Default"
               class="size-full object-cover"
               alt="photo"
             />
@@ -306,6 +306,7 @@
 <script>
 import { removeAuthToken } from '../js/api/users'
 import { useAuthStore } from '../stores/auth'
+import photos1Default from '@/assets/images/photos/photos-1.png'
 
 export default {
   name: 'LayoutMerchant',
@@ -328,6 +329,7 @@ export default {
     return {
       userLoading: false,
       showLogoutConfirm: false,
+      photos1Default,
     }
   },
 

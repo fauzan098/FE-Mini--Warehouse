@@ -162,8 +162,8 @@
                   <img
                     :src="
                       expandedTransaction.includes(index + 1)
-                        ? '@/assets/images/icons/arrow-circle-down.svg'
-                        : '/src/assets/images/icons/arrow-circle-up.svg'
+                        ? arrowCircleDown
+                        : arrowCircleUp
                     "
                     class="size-6 flex shrink-0 transition-300"
                     alt="icon"
@@ -198,7 +198,7 @@
                         :src="product.category?.name"
                         class="size-6 flex shrink-0"
                         alt="icon"
-                        onerror="this.src='/src/assets/images/icons/box-grey.svg'"
+                        onerror="this.src=boxGrey"
                       />
                       <p class="font-semibold text-lg text-nowrap">
                         {{ product.category?.name || 'Uncategorized' }}
@@ -275,7 +275,7 @@
                   :src="selectedProduct.category?.name"
                   class="size-6 flex shrink-0"
                   alt="icon"
-                  onerror="this.src='/src/assets/images/icons/box-grey.svg'"
+                  onerror="this.src=boxGrey"
                 />
                 {{ selectedProduct.category?.name || 'Uncategorized' }}
               </p>
@@ -292,7 +292,7 @@
                 :src="selectedProduct.product_photo"
                 class="size-full object-contain"
                 alt="product"
-                onerror="this.src='/src/assets/images/icons/gallery-default.svg'"
+                onerror="this.src=galleryDefault"
               />
             </div>
           </div>
@@ -320,6 +320,10 @@
 import Layout from '@/components/Layout.vue'
 import { getDashboardData } from '@/js/api/dashboard'
 import { getTransactions } from '@/js/api/transaction'
+import boxGrey from '@/assets/images/icons/box-grey.svg'
+import galleryDefault from '@/assets/images/icons/gallery-default.svg'
+import arrowCircleDown from '@/assets/images/icons/arrow-circle-down.svg'
+import arrowCircleUp from '@/assets/images/icons/arrow-circle-up.svg'
 
 export default {
   name: 'Overview',
@@ -328,6 +332,10 @@ export default {
   },
   data() {
     return {
+      boxGrey,
+      galleryDefault,
+      arrowCircleDown,
+      arrowCircleUp,
       dashboardData: {
         totalRevenue: 0,
         totalTransactions: 0,

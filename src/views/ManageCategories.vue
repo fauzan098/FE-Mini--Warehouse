@@ -45,7 +45,7 @@
             class="flex flex-col flex-1 items-center justify-center rounded-[20px] border-dashed border-2 border-red-300 gap-6"
           >
             <img
-              src="/src/assets/images/icons/close-circle-black.svg"
+              :src="closeCircleBlack"
               class="size-[52px]"
               alt="icon"
             />
@@ -60,7 +60,7 @@
             class="flex flex-col flex-1 items-center justify-center rounded-[20px] border-dashed border-2 border-monday-gray gap-6"
           >
             <img
-              src="/src/assets/images/icons/document-text-grey.svg"
+              :src="documentTextGrey"
               class="size-[52px]"
               alt="icon"
             />
@@ -107,8 +107,8 @@
                     <img
                       :src="
                         getCategoryStatus(category).status === 'protected'
-                          ? '/src/assets/images/icons/notification-black.svg'
-                          : '/src/assets/images/icons/tick-square-blue.svg'
+                          ? notificationBlack
+                          : tickSquareBlue
                       "
                       class="size-4"
                       alt="status"
@@ -133,7 +133,7 @@
                   class="btn btn-red-opacity min-w-[130px] font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <img
-                    src="/src/assets/images/icons/trash-red.svg"
+                    :src="trashRed"
                     class="flex size-6 shrink-0"
                     alt="icon"
                   />
@@ -151,6 +151,11 @@
 <script>
 import Layout from '@/components/Layout.vue'
 import { deleteCategory, getCategories } from '@/js/api/products'
+import closeCircleBlack from '@/assets/images/icons/close-circle-black.svg'
+import documentTextGrey from '@/assets/images/icons/document-text-grey.svg'
+import notificationBlack from '@/assets/images/icons/notification-black.svg'
+import tickSquareBlue from '@/assets/images/icons/tick-square-blue.svg'
+import trashRed from '@/assets/images/icons/trash-red.svg'
 
 export default {
   name: 'ManageCategories',
@@ -159,6 +164,11 @@ export default {
   },
   data() {
     return {
+      closeCircleBlack,
+      documentTextGrey,
+      notificationBlack,
+      tickSquareBlue,
+      trashRed,
       categories: [],
       loading: false,
       error: null,

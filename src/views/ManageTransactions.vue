@@ -9,7 +9,7 @@
           class="flex size-16 rounded-2xl bg-monday-background items-center justify-center overflow-hidden"
         >
           <img
-            :src="merchantInfo?.photo || '@/assets/images/thumbnails/merchant-1.png'"
+            :src="merchantInfo?.photo || merchantDefault"
             class="size-full object-contain"
             alt="icon"
           />
@@ -116,8 +116,8 @@
                 <img
                   :src="
                     expandedSections.includes(index + 1)
-                      ? '/src/assets/images/icons/arrow-circle-down.svg'
-                      : '/src/assets/images/icons/arrow-circle-up.svg'
+                      ? arrowCircleDown
+                      : arrowCircleUp
                   "
                   class="size-6 flex shrink-0 transition-300"
                   alt="icon"
@@ -252,6 +252,9 @@ import LayoutMerchant from '@/components/LayoutMerchant.vue'
 import { getTransactions } from '@/js/api/transaction'
 import { useAuthStore } from '@/stores/auth'
 import { computed, onMounted, ref } from 'vue'
+import merchantDefault from '@/assets/images/thumbnails/merchant-1.png'
+import arrowCircleDown from '@/assets/images/icons/arrow-circle-down.svg'
+import arrowCircleUp from '@/assets/images/icons/arrow-circle-up.svg'
 
 const authStore = useAuthStore()
 
