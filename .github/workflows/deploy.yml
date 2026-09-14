@@ -34,7 +34,7 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            cd /home/warehouse-vuejs-new-main
+            cd /home/ArifFauzan/warehouse-vuejs-new-main
             git pull origin main
             npm ci --production=false
             npm run build
