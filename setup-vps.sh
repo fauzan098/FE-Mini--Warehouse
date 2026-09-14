@@ -29,7 +29,7 @@ sudo apt install -y git
 
 # Clone project
 echo "📥 Cloning project..."
-cd /home
+cd /home/ArifFauzan
 sudo git clone https://github.com/YOUR_USERNAME/warehouse-vuejs-new-main.git
 cd warehouse-vuejs-new-main
 

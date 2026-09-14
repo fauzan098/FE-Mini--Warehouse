@@ -2,7 +2,7 @@
 
 set -e
 
-REPO_DIR="/home/warehouse-vuejs-new-main"
+REPO_DIR="/home/ArifFauzan/warehouse-vuejs-new-main"
 WEB_DIR="/var/www/html"
 BRANCH="main"
 
