@@ -34,9 +34,13 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
+            if [ ! -d "/home/ArifFauzan/warehouse-vuejs-new-main" ]; then
+              cd /home/ArifFauzan
+              git clone https://github.com/${{ github.repository }}.git warehouse-vuejs-new-main
+            fi
             cd /home/ArifFauzan/warehouse-vuejs-new-main
             git pull origin main
-            npm ci --production=false
+            npm ci
             npm run build
             sudo rm -rf /var/www/html/*
             sudo cp -r dist/* /var/www/html/
